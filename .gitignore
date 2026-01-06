@@ -1,0 +1,4 @@
+venv
+*.cpython-314.pyc
+*.pyc
+*db.sqlite3
