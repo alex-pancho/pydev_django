@@ -17,10 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from autoservice import views  # імпорт усіх view поточного проекту/застосунку
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # path("lesson_1/", include("lesson_1.urls")),
-    # path("", include("alex.urls")),
-    # path("alex/", include("alex.urls")),
+    path('index/', views.index, name='index-view') ,
+    path('bio/<str:username>/', views.bio, name='bio') ,
 ]
