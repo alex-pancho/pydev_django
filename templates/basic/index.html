@@ -1,0 +1,40 @@
+{% extends 'basic/base.html' %}
+
+{% block title %}My first Blog{% endblock %}
+
+{% block nav %}
+<nav>
+    <h1>Car Service</h1>
+    <a href="">Home</a> 
+    <a href="">Cars</a>
+    <a href="">API Docs</a>
+    {% if user.is_authenticated %}
+        <a href="">Logout</a>
+    {% else %}
+        <a href="">Sign Up</a>
+        <a href="">Login</a>
+    {% endif %}
+</nav>
+{% endblock %}
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% if posts_count > 0 %}
+        <p>Total posts: {{ posts_count }}</p>
+        <ol>
+        {% for post in posts %}
+            <li>{{ post }}</li>
+        {% empty %}
+            <li>No posts</li>
+        {% endfor %}
+        </ol>
+    {% else %}
+        <p>No posts yet</p>
+    {% endif %}
+    <div>
+    <a href="{% url 'blog:index' %}">Blog</a>
+
+    </div><!-- http://127.0.0.1:8000/blog/post/1/ -->
+    <div><a href="{% url 'blog:post' 2 %}">Blog 2 post</a>
+    </div>
+
+{% endblock %}

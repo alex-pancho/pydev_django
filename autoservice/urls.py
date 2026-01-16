@@ -17,7 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from .views import index, bio, home, article_detail
+
+from .views import index, bio, home, article_detail, basic
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,5 +26,5 @@ urlpatterns = [
     path('index/', index, name='index-view') ,
     path('bio/<str:username>/', bio, name='bio') ,
     path('articles/<int:id>/', article_detail),
-    path('', home),
+    path('', basic),
 ]
